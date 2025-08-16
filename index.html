@@ -13,10 +13,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px;
+            padding: 20px;
         }
         .container {
-            max-width: 400px;
+            max-width: 600px;
             width: 100%;
             background: white;
             border-radius: 20px;
@@ -27,19 +27,19 @@
         }
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 30px 20px;
+            padding: 10px 20px;
             text-align: center;
             color: #495057;
             border-bottom: 1px solid #e9ecef;
         }
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: bold;
             margin-bottom: 10px;
             text-shadow: none;
         }
         .subtitle {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.7;
         }
         .slot-machine {
@@ -61,30 +61,34 @@
             overflow: hidden;
             position: relative;
             box-shadow: inset 0 2px 4px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.08);
+            display: flex;              /* 追加: flexで中央揃え */
+            align-items: center;        /* 追加: 垂直方向中央揃え */
+            justify-content: center;    /* 追加: 水平方向中央揃え */
         }
         .reel {
-            position: absolute;
+            position: relative;         /* absolute → relative に変更 */
             width: 100%;
             height: 100%;
             display: flex;
+            align-items: center;        /* 追加: 垂直方向中央揃え */
+            justify-content: center;    /* 追加: 水平方向中央揃え */
             flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
             transition: transform 0.1s ease;
         }
         .symbol {
             width: 100%;
-            height: 120px;
+            height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
+            align-items: center;        /* 垂直方向中央揃え */
+            justify-content: center;    /* 水平方向中央揃え */
+            position: relative;         /* absolute → relative に変更 */
             top: 0;
         }
         .symbol img {
             width: 100%;
             height: 100%;
             object-fit: contain;
+            display: block;
         }
         .vs-text {
             font-size: 24px;
@@ -100,7 +104,7 @@
             border: 2px solid #e9ecef;
             padding: 15px 100px;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -129,7 +133,7 @@
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             padding: 20px;
-            max-width: 400px;
+            max-width: 600px; /* 400px → 600px に変更 */
             width: 100%;
             max-height: 400px;
             overflow-y: auto;
@@ -199,8 +203,8 @@
             width: 100%;
         }
         @media (max-width: 480px) {
-            .slot { width: 100px; height: 100px; }
-            .symbol img { width: 60px; height: 60px; }
+            .slot { width: 80px; height: 80px; }
+            .symbol img { width: 100%; height: 100%; }
             .vs-text { font-size: 20px; margin: 0 5px; }
         }
         .spinning { /* アニメーションは JavaScript で制御 */ }
@@ -246,18 +250,17 @@
             width: 120px;
             height: 120px;
             object-fit: contain;
-            background: #fff;
             border-radius: 12px;
+            background: #fff;
             border: 1px solid #e9ecef;
             margin-bottom: 4px;
             display: block;
         }
-        .result-filename {
-            font-size: 14px;
-            color: #495057;
-            word-break: break-all;
-            text-align: center;
-            margin-top: 2px;
+        @media (max-width: 480px) {
+            .result-img {
+                width: 64px;
+                height: 64px;
+            }
         }
         .result-vs {
             font-size: 56px;
@@ -269,6 +272,21 @@
             min-width: 48px;
             min-height: 48px;
             margin: 0 2px; /* さらに近づける */
+        }
+        .result-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;      /* 画像もテキストも中央揃え */
+            justify-content: center;
+            width: 100%;
+        }
+        .result-filename {
+            font-size: 14px;
+            color: #495057;
+            word-break: break-all;
+            text-align: center;       /* テキスト中央揃え */
+            margin-top: 2px;
+            width: 100%;
         }
     </style>
 </head>
@@ -330,7 +348,7 @@
             { src: "篠澤広.png", alt: "篠澤広" },
             { src: "倉本千奈.png", alt: "倉本千奈" },
             { src: "十王星南.png", alt: "十王星南" },
-            { src: "藤崎莉波.png", alt: "藤崎莉波" },
+            { src: "藤崎莉波.png", alt: "姫崎莉波" },
             { src: "藤田ことね.png", alt: "藤田ことね" },
             { src: "有村麻央.png", alt: "有村麻央" },
             { src: "秦谷美鈴.png", alt: "秦谷美鈴" }
