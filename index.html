@@ -27,7 +27,7 @@
         }
         .header {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            padding: 10px 20px;
+            padding: 30px 20px;
             text-align: center;
             color: #495057;
             border-bottom: 1px solid #e9ecef;
@@ -296,7 +296,8 @@
             <div class="logo">✨️初星シャッフル‼✨️</div>
             <div class="subtitle">
                 12人の初星学園の生徒たちをシャッフル！<br>
-                普段あまり見ない組み合わせや、おなじみのカップリングで、あらたな交流を楽しもう！
+                普段あまり見ない組み合わせや、おなじみのカップリングで創作などをお楽しみください！
+                <br>※本サイトは非公式ファンサイトです<br>
             </div>
         </div>
         <div class="slot-machine">
@@ -328,7 +329,25 @@
             </div>
             <!-- 追加画像を枠の外に配置 -->
             <div class="result-extra-image" style="text-align:center; margin-top:30px;">
-                <img src="logo.png" alt="追加画像" style="width:120px; height:auto;">
+                <a href="https://linktr.ee/Secret_Biscuits" target="_blank">
+                    <img src="logo.png" alt="追加画像" style="width:120px; height:auto;">
+                </a>
+                <div style="margin-top:8px;">
+                    <button id="noticeButton" style="font-size:12px; background:none; border:none; color:#888; text-decoration:underline; cursor:pointer; padding:0;">
+                        注意事項
+                    </button>
+                </div>
+            </div>
+            <!-- モーダル本体 -->
+            <div id="noticeModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.35);">
+                <div style="background:#fff; border-radius:12px; max-width:340px; width:90vw; margin:60px auto 0 auto; padding:24px 18px; box-shadow:0 4px 24px rgba(0,0,0,0.15); position:relative;">
+                    <button id="closeNotice" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:22px; color:#888; cursor:pointer;">×</button>
+                    <div style="font-size:13px; color:#444; line-height:1.7;">
+                        本サイトは 「学園アイドルマスター」非公式ファンサイトです。運営元である公式様とは一切関係ございません。公式に迷惑をかけない常識の範囲内でご利用ください。<br>
+                        公序良俗に反する投稿や、誹謗中傷などが見受けられた場合、サイトを公開停止とする場合があります。<br>
+                        みんなが安心して楽しめる場づくりにご協力ください✨
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -559,6 +578,18 @@
         // 結果ボックスを初期状態で空にする
         document.getElementById('resultSymbol1').innerHTML = '';
         document.getElementById('resultSymbol2').innerHTML = '';
+
+        // 注意事項モーダル表示
+        document.getElementById('noticeButton').onclick = function() {
+            document.getElementById('noticeModal').style.display = 'block';
+        };
+        document.getElementById('closeNotice').onclick = function() {
+            document.getElementById('noticeModal').style.display = 'none';
+        };
+        // モーダル外クリックで閉じる
+        document.getElementById('noticeModal').onclick = function(e) {
+            if (e.target === this) this.style.display = 'none';
+        };
     </script>
 </body>
 </html>
